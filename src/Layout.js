@@ -24,6 +24,8 @@ const Layout = () => {
           <ul className={`list ${isOpen ? 'open' : ''}`}>
             <NavLink onClick={handleBurgerClick} to="/">HOME</NavLink>
             <NavLink onClick={handleBurgerClick} to="/about">ABOUT</NavLink>
+            <Link className="button" onClick={handleBurgerClick} to="/login">Login</Link>
+            
           </ul>
         </div>
       </div>
