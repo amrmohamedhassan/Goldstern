@@ -6,20 +6,32 @@
 }
 
 a {
-  text-decoration: none;
   color: white;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 18px;
   letter-spacing: 2px;
   font-weight: 400;
-  text-transform: uppercase;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  transition: all 0.3s ease-in;
 }
 
+.app .layout {
+  position: relative;
+}
+.app .layout .wrapper {
+  background-image: url("/public/Icons/bg.jpg");
+  background-size: cover;
+  background-repeat: repeat-y;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  filter: blur(10px);
+  z-index: -500;
+}
 .app .layout .nav {
   width: 100%;
-  background-color: black;
   padding: 10px;
 }
 .app .layout .nav .cont {
@@ -37,32 +49,18 @@ a {
   width: -moz-fit-content;
   width: fit-content;
 }
-.app .layout .nav .cont .list .button {
-  background-color: white;
-  color: black;
-}
-@media (max-width: 1150px) {
-  .app .layout .nav .cont .list .button {
-    background-color: white;
-    color: black;
-    margin: 25px 0px;
-  }
-  .app .layout .nav .cont .list .button:hover {
-    background-color: white;
-    color: black;
-  }
-}
 .app .layout .nav .cont .list a {
   min-width: -moz-fit-content;
   min-width: fit-content;
-  margin: 0px 15px;
-  padding: 10px 15px;
-  border-radius: 3px;
-  transition: all 0.3s ease-in;
-  color: silver;
+  margin: 0px 30px;
+  color: grey;
+  border-radius: 2px;
+}
+.app .layout .nav .cont .list a:hover {
+  color: black;
 }
 .app .layout .nav .cont .list a.active {
-  color: white;
+  color: black;
   cursor: default;
 }
 @media (max-width: 1150px) {
@@ -71,16 +69,34 @@ a {
   }
   .app .layout .nav .cont .list a {
     min-width: 100%;
-    padding: 10px;
+    padding: 5px;
     border-bottom: 1px solid silver;
-    background: transparent;
   }
   .app .layout .nav .cont .list a:hover {
-    border-bottom: 1px solid white;
-    background-color: rgb(40, 40, 40);
+    color: black;
+    border-bottom: 1px solid black;
   }
-  .app .layout .nav .cont .list a.active {
-    background: transparent;
+  .app .layout .nav .cont .list a.active:hover {
+    color: black;
+    border-bottom: 1px solid black;
+  }
+}
+.app .layout .nav .cont .login {
+  padding: 20px 15px;
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+}
+.app .layout .nav .cont .login:hover {
+  filter: brightness(1.5);
+}
+@media (max-width: 1150px) {
+  .app .layout .nav .cont .login {
+    display: none;
+  }
+  .app .layout .nav .cont .login.open {
+    display: block;
+    width: 100%;
   }
 }
 .app .layout .nav .cont .burger-cont {
@@ -108,9 +124,9 @@ a {
   }
 }
 .app .layout .nav .cont .burger-cont .burger .line {
-  width: 40px;
+  width: 30px;
   height: 3px;
-  background-color: white;
+  background-color: black;
   transition: all 0.3s ease;
   border-radius: 25px;
 }
@@ -142,8 +158,8 @@ a {
     padding: 20px 0px;
   }
   .app .layout .nav .cont .list a {
+    padding: 10px 10px;
     margin: 3px 0px;
-    padding: 10px;
     max-width: -moz-fit-content;
     max-width: fit-content;
     text-align: start;
@@ -151,10 +167,12 @@ a {
        -moz-user-select: none;
             user-select: none;
   }
+  .app .layout .nav .cont .list a:hover {
+    color: black;
+  }
   .app .layout .nav .cont .list a.active {
     color: white;
-    background-color: rgb(40, 40, 40);
-    border-bottom: 1px solid white;
+    background-color: black;
   }
   .app .layout .nav .cont .list.open {
     display: flex;
