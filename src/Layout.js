@@ -57,7 +57,37 @@ const Layout = () => {
         <div className="wrapper"></div>
       </main>
       <div className="footer">
-        <h1>Footer</h1>
+        <div className="social-media">
+          <a
+            href="https://www.facebook.com/profile.php?id=61552608263446"
+            target="_blank"
+            rel="noreferrer">
+            <p>
+              <img src=".\Icons\facebook.png" alt="Facebook" />
+              Goldstern
+            </p>
+          </a>
+          <a
+            href="https://www.instagram.com/goldstern_eg/"
+            target="_blank"
+            rel="noreferrer">
+            <p>
+              <img src=".\Icons\instagram.png" alt="Instagram" />
+              goldstern_eg
+            </p>
+          </a>
+          <a
+            href="https://www.tiktok.com/@goldstern.eg"
+            target="_blank"
+            rel="noreferrer">
+            <p>
+              <img src=".\Icons\tiktok.png" alt="Tiktok" />
+              goldstern.eg
+            </p>
+          </a>
+        </div>
+        <div className="line-break"></div>
+        <p>&copy; Goldstern, All Rights Reserved.</p>
       </div>
     </div>
   );
