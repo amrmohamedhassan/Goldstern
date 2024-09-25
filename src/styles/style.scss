@@ -484,6 +484,7 @@ a {
           overflow: hidden; /* Hide overflow so the elements outside the div aren't visible */
           white-space: nowrap; /* Prevent wrapping of elements */
           position: relative;
+          margin: 100px 0px 50px 0px;
           .carousel-inner {
             display: inline-block;
             animation: slide-left 10s linear infinite; /* Change duration to control speed */
