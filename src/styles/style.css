@@ -5,6 +5,14 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@keyframes slide-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 a {
   color: white;
   text-decoration: none;
@@ -32,6 +40,9 @@ a {
 }
 .app .layout .nav {
   width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   padding: 10px;
 }
 .app .layout .nav .cont {
@@ -178,30 +189,23 @@ a {
     display: flex;
   }
 }
-.app .layout .hero {
-  margin-top: 50px;
+.app .layout .home {
+  overflow: hidden;
+}
+.app .layout .home .hero {
+  margin-top: 25px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   overflow-x: hidden;
   width: 100%;
   position: relative;
-  overflow-y: hidden;
-  color: white;
+  overflow: hidden;
+  color: black;
+  padding: 50px 0px;
 }
-.app .layout .hero .wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url("/public/Icons/hero.jpg");
-  background-size: cover;
-  width: 100%;
-  aspect-ratio: 16/9;
-  z-index: -100;
-  filter: blur(0px) brightness(0.8);
-}
-.app .layout .hero .text {
+.app .layout .home .hero .text {
   display: flex;
   flex-direction: column;
   margin-left: 25px;
@@ -209,14 +213,14 @@ a {
   width: fit-content;
   width: 100%;
 }
-.app .layout .hero .text h1 {
+.app .layout .home .hero .text h1 {
   letter-spacing: 2px;
   font-size: 42px;
   font-weight: 400;
   margin: 20px 0px;
   align-self: flex-start;
 }
-.app .layout .hero .text .services {
+.app .layout .home .hero .text .services {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -224,12 +228,12 @@ a {
   width: 100%;
   padding: 0px 10%;
 }
-.app .layout .hero .text .services .services-list {
+.app .layout .home .hero .text .services .services-list {
   list-style: none;
-  width: 50%;
+  width: 100%;
   align-self: flex-start;
 }
-.app .layout .hero .text .services .services-list li {
+.app .layout .home .hero .text .services .services-list li {
   letter-spacing: 2px;
   margin: 25px auto;
   display: flex;
@@ -238,7 +242,7 @@ a {
   text-wrap: nowrap;
   font-size: 18px;
   letter-spacing: 2px;
-  border: 2px solid white;
+  border: 2px solid black;
   border-radius: 7px;
   padding: 10px 0px;
   cursor: default;
@@ -246,23 +250,23 @@ a {
      -moz-user-select: none;
           user-select: none;
 }
-.app .layout .hero .text .services .services-list li img {
+.app .layout .home .hero .text .services .services-list li img {
   max-width: 25px;
   margin-right: 5px;
 }
-.app .layout .hero .text .services .services-list li:nth-child(1) {
+.app .layout .home .hero .text .services .services-list li:nth-child(1) {
   padding-left: 10%;
 }
-.app .layout .hero .text .services .services-list li:nth-child(2) {
+.app .layout .home .hero .text .services .services-list li:nth-child(2) {
   padding-left: 20%;
 }
-.app .layout .hero .text .services .services-list li:nth-child(3) {
+.app .layout .home .hero .text .services .services-list li:nth-child(3) {
   padding-left: 30%;
 }
-.app .layout .hero .text .services .services-list li:nth-child(4) {
+.app .layout .home .hero .text .services .services-list li:nth-child(4) {
   padding-left: 40%;
 }
-.app .layout .hero .text .featured {
+.app .layout .home .hero .text .featured {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -272,26 +276,25 @@ a {
   position: relative;
   overflow-y: hidden;
 }
-.app .layout .hero .text .featured .cars {
+.app .layout .home .hero .text .featured .cars {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  position: relative;
-  overflow-y: hidden;
 }
-.app .layout .hero .text .featured .cars .car {
+.app .layout .home .hero .text .featured .cars .car {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0px 50px;
+  margin: 20px 25px;
+  display: flex;
 }
-.app .layout .hero .text .featured .cars .car img {
-  width: 100px;
+.app .layout .home .hero .text .featured .cars .car img {
+  width: 120px;
   aspect-ratio: 1/1;
 }
-.app .layout .hero .text .featured .cars .car p {
+.app .layout .home .hero .text .featured .cars .car p {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -301,66 +304,251 @@ a {
   line-height: 35px;
   text-wrap: nowrap;
 }
-.app .layout .hero .text .featured .cars .car p img {
+.app .layout .home .hero .text .featured .cars .car p img {
   max-width: 25px;
   margin-right: 10px;
 }
-.app .layout .hero .hero-image {
+.app .layout .home .hero .hero-image {
   transform: translateX(10%);
   border-top-left-radius: 13px;
   border-bottom-left-radius: 13px;
   aspect-ratio: 1/1;
-  width: 40%;
+  width: 45%;
 }
-.app .layout .details {
+.app .layout .home .details {
   display: flex;
   flex-direction: column;
   margin-top: 100px;
 }
-.app .layout .details h1 {
+.app .layout .home .details h1 {
   text-align: center;
   letter-spacing: 2px;
   font-size: 52px;
   font-weight: 400;
   margin: 25px;
 }
-.app .layout .details .process {
+.app .layout .home .details .process {
   display: flex;
   flex-direction: column;
   padding: 0px 50px;
 }
-.app .layout .details .process h1 {
+.app .layout .home .details .process h1 {
   text-align: start;
   font-size: 42px;
   letter-spacing: 2px;
   font-weight: 400;
 }
-.app .layout .details .process .process-list {
+.app .layout .home .details .process .process-list {
   list-style: none;
   font-size: 20px;
   letter-spacing: 2px;
 }
-.app .layout .details .process .process-list li {
+.app .layout .home .details .process .process-list li {
   margin: 15px 45px;
 }
-.app .layout .details .customs,
-.app .layout .details .support {
+.app .layout .home .details .customs,
+.app .layout .home .details .support {
   display: flex;
   flex-direction: column;
   padding: 0px 50px;
 }
-.app .layout .details .customs h1,
-.app .layout .details .support h1 {
+.app .layout .home .details .customs h1,
+.app .layout .home .details .support h1 {
   text-align: start;
   font-size: 42px;
   letter-spacing: 2px;
   font-weight: 400;
 }
-.app .layout .details .customs p,
-.app .layout .details .support p {
+.app .layout .home .details .customs p,
+.app .layout .home .details .support p {
   padding: 0px 45px;
   font-size: 20px;
   letter-spacing: 2px;
+}
+.app .layout .about {
+  width: 100%;
+  overflow: hidden;
+}
+.app .layout .about .story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px 50px;
+}
+.app .layout .about .story h1 {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.app .layout .about .story p {
+  width: 80%;
+  letter-spacing: 2px;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 25px 0px;
+  text-align: center;
+  line-height: 25px;
+}
+.app .layout .about .mission {
+  margin: 0px 50px;
+}
+.app .layout .about .mission .cards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.app .layout .about .mission .cards .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app .layout .about .mission .cards .card h1 {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.app .layout .about .mission .cards .card p {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  width: 80%;
+  text-align: center;
+  margin: 25px 0px;
+  line-height: 25px;
+}
+.app .layout .about .message {
+  margin: 100px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app .layout .about .message h1 {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.app .layout .about .message p {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  width: 80%;
+  text-align: center;
+  margin: 25px 0px;
+  line-height: 25px;
+}
+.app .layout .about .import {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0px 50px;
+}
+.app .layout .about .import h1 {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.app .layout .about .import .cards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.app .layout .about .import .cards .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+.app .layout .about .import .cards .card h1 {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.app .layout .about .import .cards .card p {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  width: 80%;
+  text-align: center;
+  margin: 25px 0px;
+  line-height: 25px;
+}
+.app .layout .about .cst-test {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 100px 50px;
+  overflow-x: hidden;
+}
+.app .layout .about .cst-test h1 {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 50px 0px;
+}
+.app .layout .about .cst-test .carousel {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden; /* Hide overflow so the elements outside the div aren't visible */
+  white-space: nowrap; /* Prevent wrapping of elements */
+  position: relative;
+}
+.app .layout .about .cst-test .carousel .carousel-inner {
+  display: inline-block;
+  animation: slide-left 10s linear infinite; /* Change duration to control speed */
+  white-space: nowrap;
+}
+.app .layout .about .cst-test .carousel .carousel-inner h1 {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  display: inline-block;
+  margin-right: 150px; /* Space between the elements */
+}
+.app .layout .about .faqs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0px 50px;
+}
+.app .layout .about .faqs h1 {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 50px 0px;
+}
+.app .layout .about .faqs .card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 15px 0px;
+}
+.app .layout .about .faqs .card h1 {
+  font-size: 34px;
+  padding: 5px 20px;
+  width: 100%;
+  margin: 15px 0px;
+  text-align: start;
+  cursor: pointer;
+}
+.app .layout .about .faqs .card p {
+  padding-left: 25px;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  width: 80%;
+  line-height: 25px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+.app .layout .about .faqs .card p.show {
+  max-height: 100px; /* Adjust to fit the content size, or dynamically */
+  opacity: 1;
 }
 .app .layout .footer {
   display: flex;
